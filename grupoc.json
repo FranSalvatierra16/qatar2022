@@ -1,0 +1,183 @@
+[
+   {
+      "partido": "Senegal vs Holanda",
+      "local": "Senegal",
+      "visitante": "Holanda",
+      "partido_numero": 1,
+      "grupo": "A",
+      "fecha": "21-11",
+      "horario": "07:00",
+      "estadio": "AL THUMAMA"
+   },
+   {
+      "partido": "Qatar vs Ecuador",
+      "local": "Qatar",
+      "visitante": "Ecuador",
+      "partido_numero": 2,
+      "grupo": "A",
+      "fecha": "21-11",
+      "horario": "13:00",
+      "estadio": "AL BAYT"
+   },
+   {
+      "partido": "Inglaterra vs Iran",
+      "local": "Inglaterra",
+      "visitante": "Iran",
+      "partido_numero": 3,
+      "grupo": "B",
+      "fecha": "21-11",
+      "horario": "16:00",
+      "estadio": "INTERNACIONAL KHALIFA"
+   },
+   {
+      "partido": "Estados Unidos vs Gales",
+      "local": "Estados Unidos",
+      "visitante": "Gales",
+      "partido_numero": 4,
+      "grupo": "B",
+      "fecha": "21-11",
+      "horario": "07:00",
+      "estadio": "AHMAD BIN ALI"
+   },
+   {
+      "partido": "Argentina vs Arabia Saudita",
+      "local": "Argentina",
+      "visitante": "Arabia Saudita",
+      "partido_numero": 5,
+      "grupo": "C",
+      "fecha": "22-11",
+      "horario": "07:00",
+      "estadio": "Lusail"
+   },
+   {
+      "partido": "Mexico vs Polonia",
+      "local": "Mexico",
+      "visitante": "Polonia",
+      "partido_numero": 6,
+      "grupo": "C",
+      "fecha": "22-11",
+      "horario": "13:00",
+      "estadio": "974"
+   },
+   {
+      "partido": "Qatar vs Senegal",
+      "local": "Qatar",
+      "visitante": "Senegal",
+      "partido_numero": 7,
+      "grupo": "A",
+      "fecha": "25-11",
+      "horario": "10:00",
+      "estadio": "AL THUMAMA"
+   },
+   {
+      "partido": "Ecuador vs Holanda",
+      "local": "Ecuador",
+      "visitante": "Holanda",
+      "partido_numero": 8,
+      "grupo": "A",
+      "fecha": "25-11",
+      "horario": "13:00",
+      "estadio": "INTERNACIONAL KHALIFA"
+   },
+   {
+      "partido": "Iran vs Gales",
+      "local": "Iran",
+      "visitante": "Gales",
+      "partido_numero": 9,
+      "grupo": "B",
+      "fecha": "25-11",
+      "horario": "07:00",
+      "estadio": "AHMAD BIN ALI"
+   },
+   {
+      "partido": "Inglaterra vs Estados Unidos",
+      "local": "Inglaterra",
+      "visitante": "Estados Unidos",
+      "partido_numero": 10,
+      "grupo": "B",
+      "fecha": "25-11",
+      "horario": "16:00",
+      "estadio": "AL BAYT"
+   },
+   {
+      "partido": "Arabia Saudita vs Polonia",
+      "local": "Arabia Saudita",
+      "visitante": "Polonia",
+      "partido_numero": 11,
+      "grupo": "C",
+      "fecha": "26-11",
+      "horario": "10:00",
+      "estadio": "CIUDAD EDUCACION"
+   },
+   {
+      "partido": "Argentina vs Mexico",
+      "local": "Argentina",
+      "visitante": "Mexico",
+      "partido_numero": 12,
+      "grupo": "C",
+      "fecha": "26-11",
+      "horario": "16:00",
+      "estadio": "Lusail"
+   },
+   {
+      "partido": "Qatar vs Holanda",
+      "local": "Qatar",
+      "visitante": "Holanda",
+      "partido_numero": 13,
+      "grupo": "A",
+      "fecha": "29-11",
+      "horario": "12:00",
+      "estadio": "AL BAYT"
+   },
+   {
+      "partido": "Ecuador vs Senegal",
+      "local": "Ecuador",
+      "visitante": "Senegal",
+      "partido_numero": 14,
+      "grupo": "A",
+      "fecha": "29-11",
+      "horario": "12:00",
+      "estadio": "INTERNACIONAL KHALIFA"
+   },
+ 
+   {
+      "partido": "Inglaterra vs Gales",
+      "local": "Inglaterra",
+      "visitante": "Gales",
+      "partido_numero": 15,
+      "grupo": "B",
+      "fecha": "25-11",
+      "horario": "16:00",
+      "estadio": "AHMAD BIN ALI"
+   },  {
+      "partido": "Iran vs Estados Unidos ",
+      "local": "Iran",
+      "visitante": "Estados Unidos",
+      "partido_numero": 16,
+      "grupo": "B",
+      "fecha": "29-11",
+      "horario": "16:00",
+      "estadio": "AL THUMAMA"
+   },
+   {
+      "partido": "Argentina vs Polonia",
+      "local": "Argentina",
+      "visitante": "Polonia",
+      "partido_numero": 17,
+      "grupo": "C",
+      "fecha": "30-11",
+      "horario": "16:00",
+      "estadio": "974"
+   },
+   {
+      "partido": "Arabia Saudita vs Mexico",
+      "local": "Arabia Saudita",
+      "visitante": "Mexico",
+      "partido_numero": 18,
+      "grupo": "C",
+      "fecha": "30-11",
+      "horario": "16:00",
+      "estadio": "LUSAIL"
+   }
+  
+]
