@@ -15,6 +15,7 @@ public class Main {
         teclado = new Scanner(System.in);
         ArrayList<Equipo> lista_e = new ArrayList<>();
         ArrayList<Partido> lista_p = new ArrayList<>();
+        ArrayList<Apuesta> lista_a=new ArrayList<>();
         
          /*
         ArrayList<String> jugadores_1 = new ArrayList<>();
@@ -89,7 +90,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-	        String fuente2= JsonUtiles.leer("grupoc");
+	        String fuente2= JsonUtiles.leer("partidosgrupos");
 	         JSONArray listapartidos;
 	         System.out.println(fuente2);
 	       
@@ -146,25 +147,34 @@ public class Main {
 	   System.out.println("--------------------------------------------------");
        System.out.println("FECHA 1");
        System.out.println("--------------------------------------------------");
-       for(int i=0;i<6;i++)
+       for(int i=0;i<16;i++)
 		{ 
 			System.out.println(lista_p.get(i));
 		}
        System.out.println("--------------------------------------------------");
        System.out.println("FECHA 2");
        System.out.println("--------------------------------------------------");
-       for(int i=6;i<12;i++)
+       for(int i=16;i<32;i++)
 		{ 
 			System.out.println(lista_p.get(i));
 		}
        System.out.println("--------------------------------------------------");
        System.out.println("FECHA 3");
        System.out.println("--------------------------------------------------");
-       for(int i=12;i<18;i++)
+       for(int i=32;i<48;i++)
 		{ 
 			System.out.println(lista_p.get(i));
 		}
         App app = new App(lista_e, lista_p);
+        
+        
+        for(int i=0;i<1;i++)
+        {
+        	Apuesta a1= realizar_apuesta(lista_p);
+            lista_a.add(a1);
+        }
+       
+        
 
         inicio_app(app, lista_p);
         for(int i=0;i<lista_e.size();i++)
@@ -172,58 +182,70 @@ public class Main {
         {
         	System.out.println(lista_e.get(i).toString());
         }
-        String letra= "B";
+        
+        apuestas_terminadas(lista_a, lista_p);
+        
+        String letra="";
         Equipo ganador;
-        int posicion=1;
-       ganador= ganador_del_grupo(lista_e,letra,posicion);
-        System.out.println("Ganador del grupo es: " + ganador.getNombre());
-        posicion++;
-        ganador= ganador_del_grupo(lista_e,letra,posicion);
-         System.out.println("Segundo del grupo es: " + ganador.getNombre());
-         
-         letra= "A";
-         posicion=1;
-         ganador= ganador_del_grupo(lista_e,letra,posicion);
-         System.out.println("Ganador del grupo es: " + ganador.getNombre());
-         posicion++;
-         ganador= ganador_del_grupo(lista_e,letra,posicion);
-          System.out.println("Segundo del grupo es: " + ganador.getNombre());
-          letra= "C";
-          posicion=1;
-          ganador= ganador_del_grupo(lista_e,letra,posicion);
-          System.out.println("Ganador del grupo es: " + ganador.getNombre());
-          posicion++;
-          ganador= ganador_del_grupo(lista_e,letra,posicion);
-           System.out.println("Segundo del grupo es: " + ganador.getNombre());
-          System.out.println("CLASIFICADOS \n"
-          		+ "");
-          for(int i=0;i<lista_e.size();i++)
-          	
-          {
-        	  if(lista_e.get(i).getEstado()==false) {
-        		  System.out.println("Nombre "+  lista_e.get(i).getNombre());
-        		  System.out.println("Puesto "+  lista_e.get(i).getComo_termino());
-        	  }
-        	
-          }
+       
+        ArrayList<String> letras= new ArrayList<String>();
+        letras.add("A");
+        letras.add("B");
+        letras.add("C");
+        letras.add("D");
+        letras.add("E");
+        letras.add("F");
+        letras.add("G");
+        letras.add("H");
+        for(int i=0;i<letras.size();i++)
+        {
+        	 int posicion=1;
+        	letra=letras.get(i);
+        	ganador= ganador_del_grupo(lista_e,letra,posicion);
+            System.out.println("Ganador del grupo "+ letras.get(i)  +" es: " + ganador.getNombre());
+            posicion++;
+            ganador= ganador_del_grupo(lista_e,letra,posicion);
+             System.out.println("Segundo del grupo "+ letras.get(i)  + " es: " + ganador.getNombre());
+        }
+    
+          
           ArrayList<Partido> lista_octavos = new ArrayList<>();
          
      	 
-     	 String letrauno="A";
-     	 String letrados="B";
-     	 
-     	Partido p=armado_partidos(lista_e, letrauno, letrados);
-     	 
-       	
-       	lista_octavos.add(p);
-         letrauno="B";
-    	  letrados="A";
-    		Partido p1=armado_partidos(lista_e, letrauno, letrados);
-        	 
+     	
+     	 for(int i=0;i<letras.size();i++)
+     	 {
+     		 String letrauno=letras.get(i);
+     		 i++;
+         	 String letrados=letras.get(i);
+         	 
+     		Partido p=armado_partidos(lista_e, letrauno, letrados);
+           	lista_octavos.add(p);
            	
-           	lista_octavos.add(p1);
+           	
+     	 }
+     	 for(int i=letras.size()-1;i>=0;i--)
+     	 {
+             String letrauno=letras.get(i);
+     		 i--;
+         	 String letrados=letras.get(i);
+         	 
+     		Partido p=armado_partidos(lista_e, letrauno, letrados);
+           	lista_octavos.add(p);
+           	
+           	
+     	 }
+     	 
+     
     	 app.ver_partidos(lista_octavos);
+    	 String equipito;
+    	 System.out.println("Que equipo desea buscar? \n");
+    	 teclado.nextLine();
+    	 equipito = teclado.nextLine();
     	
+    	 app.buscar_equipo(lista_e, equipito);
+    	 
+    	simular_partidos(lista_octavos);
       
       	
       
@@ -261,7 +283,11 @@ public class Main {
         
         
     }
-    public static void menu_user(){
+    private static void equipito(String nextLine) {
+		// TODO Auto-generated method stub
+		
+	}
+	public static void menu_user(){
         System.out.println("[1] Ver partidos");
         System.out.println("[2] Realizar apuesta.");
         System.out.println("[3] Generar resultados.");
@@ -396,6 +422,59 @@ for(int i=0;i<lista.size();i++)
            
         }
     }
+    public static void simular_partidos_eliminatorias(ArrayList<Partido> arreglo) {
+        int i = 1;
+        for (i=0;i<arreglo.size();i++) {    
+            arreglo.get(i).setResultado();
+            System.out.println("Partido"+i+": " + arreglo.get(i).toStringResultado());
+           
+        }
+    }
+    public static Apuesta realizar_apuesta(ArrayList<Partido> lista) {
+    	
+    	System.out.println("A que partido desea apostar?");
+    	int id_partido = teclado.nextInt();
+    	System.out.println(lista.get(id_partido-1).toString());
+    	System.out.println("Elegir apuesta: 0-local 1-visitante 2-empate \n ");
+    	int que_aposto=teclado.nextInt();
+    	System.out.println("Cuanto desea apostar?");
+    	float monto=teclado.nextFloat();
+    	
+    	float ganancia=monto*2;
+    	System.out.println("En caso de ganar la apuesta cobraria $ " +ganancia);
+    	
+    	Apuesta apuesta= new Apuesta(monto, que_aposto, id_partido);
+    	return apuesta;
+    	
+    }
+    public static void apuestas_terminadas(ArrayList<Apuesta> lista, ArrayList<Partido> lista_partido) {
+    	
+    	for(int i=0;i<lista.size();i++)
+    	{
+    		for(int d=0;d<lista_partido.size();d++)
+    		{
+ 
+    			if(lista.get(i).getId_partido()==lista_partido.get(d).getId()) {
+    	
+    				if(lista.get(i).getQue_aposto()==lista_partido.get(d).getResultado())
+    				{
+    					
+    					System.out.println(lista_partido.get(d).toStringResultado());
+    					System.out.println("Felicitaciones,apuesta ganada! \n");
+    					lista.get(i).setEstado(true);
+    					lista.get(i).setGanancia(lista.get(i).getMonto());;
+    				}else {
+    					System.out.println(lista_partido.get(d).toStringResultado());
+    					System.out.println("Lo siento,apuesta perdida! \n");
+    					lista.get(i).setEstado(false);
+    					
+    				}
+    			}
+    		}
+    	}
+    }
+    
+    }
   
    
-}
+

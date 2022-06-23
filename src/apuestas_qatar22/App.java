@@ -1,8 +1,11 @@
 package apuestas_qatar22;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
+	
+	static Scanner teclado = new Scanner(System.in);
 
     ArrayList<Equipo>lista_equipos;
     ArrayList<Partido>grupos;
@@ -50,5 +53,32 @@ public class App {
            
         }
     }
+    public void buscar_equipo(ArrayList<Equipo> lista,String equipo)
+    {
+    	
+    		Boolean respuesta=false;
+    		for(int i=0;i<lista.size();i++)
+
+    			if(lista.get(i).getNombre().equals(equipo))
+    				{
+    		try {
+    			respuesta= validacion_estado(lista, i);
+    			
+    		} catch (ErrorEquipoeliminado e) {
+    			// TODO Auto-generated catch block
+    			System.out.println(e.getMessage());
+    	}
+    				}
+    	}
+    	public Boolean validacion_estado(ArrayList<Equipo> lista,int cont)throws ErrorEquipoeliminado{
+    		if(lista.get(cont).getEstado()==true)
+    		{
+    			throw new ErrorEquipoeliminado("El equipo "+ lista.get(cont).getNombre()+" ha quedado eliminado");
+    		}
+    		return true;
+    	}
+    	
+    
+    	
     
 }
